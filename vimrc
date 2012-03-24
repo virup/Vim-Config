@@ -67,3 +67,12 @@ map <CR> o<Esc>
  "To use <Ctrl-l> to remove any search highlighting in vim
  "put following in .vimrc:
  nnoremap <silent> <C-l> :nohl<CR><C-l>""
+
+ "tagbar shortcut
+ nmap <F8> :TagbarToggle<CR>
+
+ "Automatically open NERDtree if vim starts up with no filetype
+ autocmd vimenter * if !argc() | NERDTree | endif
+ "Close vim if NERDtree is the only window open
+ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
